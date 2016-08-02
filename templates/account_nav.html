@@ -1,0 +1,35 @@
+{% load i18n %}
+
+{% if request.session.id %}		
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		{{ request.session.username }}
+		<strong class="caret"></strong>
+	</a>
+	<ul class="dropdown-menu">
+		<!--<li>
+			<a href="#">{{ request.user }}</a>
+		</li>
+		<li>
+			<a href="#">Another action</a>
+		</li>
+		<li>
+			<a href="#">Something else here</a>
+		</li>-->
+		<li class="divider">
+		</li>
+		<li>
+			<a href="{% url 'account:logout' %}"><em class="glyphicon glyphicon-off"></em>Logout</a>
+		</li>
+	</ul>
+</li>
+
+{% else %}
+<li class="dropdown">
+	<div class="btn-group">
+		 <a href="{% url 'account:login' %}"><button class="btn btn-default btn-success" type="button"><em class="glyphicon glyphicon-user"></em>Login</button></a>
+		 <a href="{% url 'account:register' %}"><button class="btn btn-default btn-success" type="button"><em class=""></em>Register</button></a>
+		  &nbsp
+	</div>
+</li>
+{% endif %}

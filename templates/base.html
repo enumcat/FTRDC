@@ -1,0 +1,22 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}FTRDC{% endblock title %}</title>
+		<link rel="stylesheet" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+		<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		{% block css %}{% endblock css %}
+	    {% block js %}{% endblock js %}
+	</head>
+	<body>
+		<header>{% include "header.html" %}</header>
+		
+		{% block content %}{% endblock content %}
+		
+		
+		<footer>{% include "footer.html" %}</footer>
+	</body>
+</html>

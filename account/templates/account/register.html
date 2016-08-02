@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}  
+
+{% block title %}
+{% trans "FTRDC-Register" %}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-3 column">
+		</div>
+		<div class="col-md-6 column">
+			<form action="{% url 'account:register' %}" method="post" role="form">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="InputEmail">{% trans "Email address" %}</label><input name="email" class="form-control" id="InputEmail" type="email" />
+					<p class="help-block">
+						{% trans "You will need your email address to login." %}
+					</p>
+				</div>
+				<div class="form-group">
+					<label for="InputUsername">Username</label><input name="username" class="form-control" id="InputUsername"/>
+					<p class="help-block">
+						{% trans "You can change your username later." %}
+					</p>
+				</div>
+				<div class="form-group">
+					<label for="InputPassword1">{% trans "Password" %}</label><input name="password1" class="form-control" id="InputPassword1" type="password" />
+				</div>
+				<div class="form-group">
+					<label for="InputPassword2">{% trans "Verify password" %}</label><input name="password2" class="form-control" id="InputPassword2" type="password" />
+				</div>
+				<div class="checkbox">
+				</div> <button type="submit" class="btn btn-default">{% trans "Register" %}</button>
+			</form>
+			{% if wrong %}
+			<div class="alert alert-dismissable alert-danger">
+				 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h4>
+					Wrong
+				</h4> <strong>Check your input!</strong> 
+				{% if wrongMes %}
+					{{ wrongMes }}
+				{% else %}
+					{% trans "Please check your messages." %}
+				{% endif %}
+			</div>
+			{% endif %}
+		</div>
+		<div class="col-md-3 column">
+		</div>
+	</div>
+</div>
+{% endblock content %}
