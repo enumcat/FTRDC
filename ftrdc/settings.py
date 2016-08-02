@@ -119,8 +119,8 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
-    ('en', ('English')),
     ('zh', ('中文')),
+    ('en', ('English')),
 )
 
 LOCALE_PATHS = (
